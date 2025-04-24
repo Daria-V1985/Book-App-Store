@@ -39,8 +39,24 @@ const formBtn = document.querySelector('.form__btn');
 const pageAppFormBtn = document.querySelector('.page-app__form-btn');
 
 let dataBook = [];
+if (localStorage.getItem('dataBook')) {
+  dataBook = JSON.parse(localStorage.getItem('dataBook'));
+  dataBook.forEach(book => renderTask(book));
+}
 
 form.addEventListener('submit', addCard);
+pageAppFormBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  form.classList.remove('hidden');
+  pageAppCard.classList.remove('visible');
+  pageAppFormBtn.classList.remove('visible');
+
+  formName.value = '';
+  formName.focus();
+  formSelect.value = '1';
+  formMessage.value = '';
+  formImage.value = '';
+});
 
 function addCard(e) {
   form.classList.add('hidden');
@@ -63,38 +79,31 @@ function addCard(e) {
   }
 
   dataBook.push(newBookData);
-  console.log(dataBook);
+  saveToLS();
 
-  const formCard = `
-        <div id="${newBookData.id}" class="card__inner">
-          <div class="card__img">
-            <img src="${newBookData.image}" alt="" srcset="">
-          </div>
-          <div class="card__body card-body">
-            <h4 class="card-body__title">${newBookData.text}</h4>
-            <p class="card-body__desc">${newBookData.message}</p>
-            <div class="card-body__count">
-              <span class="card-body__count-num">${newBookData.select}</span>
-              <p class="card-body__count-text">из 10</p>
-            </div>
-            <button class="card-body__btn">Открыть</button>
-          </div>
-        </div>`;
-
-      pageAppCard.insertAdjacentHTML('beforeend', formCard);
-
+  renderTask(newBookData);
 }
 
-pageAppFormBtn.addEventListener('click', () => {
-  form.classList.remove('hidden');
-  pageAppCard.classList.remove('visible');
-  pageAppFormBtn.classList.remove('visible');
+function saveToLS() {
+  localStorage.setItem('dataBook', JSON.stringify(dataBook));
+}
 
-  formName.value = '';
-  formName.focus();
-  formSelect.value = '1';
-  formMessage.value = '';
-  formImage.value = '';
-});
+function renderTask(book) {
+    const formCard = `
+            <div id="${book.id}" class="card__inner">
+              <div class="card__img">
+                <img src="${book.image}" alt="" srcset="">
+              </div>
+              <div class="card__body card-body">
+                <h4 class="card-body__title">${book.text}</h4>
+                <p class="card-body__desc">${book.message}</p>
+                <div class="card-body__count">
+                  <span class="card-body__count-num">${book.select}</span>
+                  <p class="card-body__count-text">из 10</p>
+                </div>
+                <button class="card-body__btn">Открыть</button>
+              </div>
+            </div>`;
 
-
+          pageAppCard.insertAdjacentHTML('beforeend', formCard);
+}
