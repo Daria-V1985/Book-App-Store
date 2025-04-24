@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e4e3e3;
+}
+
+.page-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8% 0;
+}
+.page-app__container {
+  width: 1400px;
+  height: auto;
+  background-color: #fff;
+  overflow: hidden;
+  border: 2px solid #222;
+  border-radius: 30px;
+}
+.page-app__wrapper {
+  height: 100%;
+  display: flex;
+  padding: 20px 40px;
+  gap: 40px;
+}
+.page-app__form, .page-app__view {
+  min-height: 100%;
+  border: 2px solid #222;
+  border-radius: 30px;
+  padding: 25px;
+}
+.page-app__form {
+  width: 400px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+.page-app__form-btn {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #222;
+  border-radius: 5px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  display: none;
+}
+.page-app__form-btn:hover {
+  box-shadow: 0 2px 2px #8f8f8f;
+  transition: all 0.25s ease;
+}
+.page-app__form-btn.visible {
+  display: block;
+}
+.page-app__cards {
+  display: flex;
+  flex: 1;
+}
+.page-app__view {
+  flex: 1;
+  padding-left: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+.page-app__view.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.25s ease;
+}
+
+.form {
+  flex: 1;
+}
+.form * {
+  outline: none;
+}
+.form__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.form__input {
+  width: 100%;
+  border: 1px solid #222;
+  border-radius: 5px;
+  padding: 10px;
+}
+.form__input:focus {
+  box-shadow: 0 2px 2px #8f8f8f;
+}
+.form__textarea {
+  min-height: 120px;
+  border: 1px solid #222;
+  border-radius: 5px;
+  padding: 10px;
+  resize: vertical;
+}
+.form__textarea:focus {
+  box-shadow: 0 2px 2px #8f8f8f;
+}
+.form__select {
+  background-color: #fff;
+  border: 1px solid #222;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+.form__select:focus {
+  box-shadow: 0 2px 2px #8f8f8f;
+}
+.form__btn {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #222;
+  border-radius: 5px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.form__btn:hover {
+  box-shadow: 0 2px 2px #8f8f8f;
+  transition: all 0.25s ease;
+}
+.form.hidden {
+  display: none;
+}
+
+.file {
+  display: flex;
+  gap: 50px;
+  min-height: 120px;
+}
+.file__item {
+  position: relative;
+}
+.file__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  font-size: 0;
+  cursor: pointer;
+}
+.file__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  background-color: #fff;
+  border: 1px solid #222;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 2px #8f8f8f;
+}
+.file__preview {
+  display: inline-block;
+  max-width: 80px;
+}
+.file__preview img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.card {
+  flex: 1;
+  display: none;
+}
+.card__inner {
+  border: 1px solid #222;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+}
+.card__img img {
+  width: 110px;
+  border-radius: 5px;
+}
+.card.visible {
+  display: block;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
+}
+.card-body__title {
+  font-size: 18px;
+}
+.card-body__desc {
+  font-size: 15px;
+}
+.card-body__count {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.card-body__count-num {
+  padding-right: 5px;
+}
+.card-body__btn {
+  border: 1px solid #222;
+  border-radius: 5px;
+  padding: 5px;
+  background: #fff;
+  width: 100px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.card-body__btn:hover {
+  box-shadow: 0 2px 2px #8f8f8f;
+  transition: all 0.25s ease;
+}
+
+.view {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 20px;
+}
+.view__img {
+  min-width: 250px;
+}
+.view__img img {
+  width: 100%;
+  border-radius: 5px;
+}
+.view__info {
+  margin: 20px;
+}
+.view__info-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.view__info-description {
+  font-size: 17px;
+  line-height: 1.3;
+}/*# sourceMappingURL=style.css.map */

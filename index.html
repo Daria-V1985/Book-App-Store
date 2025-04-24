@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/app.js" defer></script>
+  <title>Book App Store</title>
+</head>
+<body>
+  
+  <main class="page">
+    
+    <section class="page-app">
+      <div class="page-app__container">
+        <div class="page-app__wrapper">
+          <div class="page-app__form">
+            <form action="" class="form">
+              <div class="form__item">
+                <label for="formName" class="form__label">Имя книги</label>
+                <input id="formName" type="text" name="name" class="form__input">
+              </div>
+              <div class="form__item">
+                <label for="formMessage" class="form__label">Описание книги</label>
+                <textarea id="formMessage" name="message" class="form__textarea"></textarea>
+              </div>
+              <div class="form__item">
+                <div class="form__label">Оценка</div>
+                <select name="rating" class="form__select">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div class="form__item">
+                <div class="form__label">Добавить изображение</div>
+                <div class="file">
+                  <div class="file__item">
+                    <input id="formImage" accept=".jpg, .png, .gif" type="file" name="image" class="file__input">
+                    <div class="file__btn">Выбрать</div>
+                  </div>
+                  <div class="file__preview"></div>
+                </div>
+              </div>
+              <button type="submit" class="form__btn">Добавить книгу</button>
+            </form>
+            <div class="page-app__cards">
+              <article class="page-app__card card">
+                <!-- <div class="card__inner">
+                  <div class="card__img">
+                    <img src="assets/img/canva-mint-coffee.jpg" alt="" srcset="">
+                  </div>
+                  <div class="card__body card-body">
+                    <h4 class="card-body__title">Имя книги</h4>
+                    <p class="card-body__desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis inventore vitae voluptatibus, quos, quae...</p>
+                    <div class="card-body__count">
+                      <span class="card-body__count-num">2</span>
+                      <p class="card-body__count-text">из 10</p>
+                    </div>
+                    <button class="card-body__btn">Открыть</button>
+                  </div>
+                </div> -->
+              </article>
+            </div>
+            <button type="submit" class="page-app__form-btn">Открыть форму</button>
+          </div>
+          <div class="page-app__view">
+            <div class="view">
+              <div class="view__img">
+                <img src="assets/img/canva-mint-coffee.jpg" alt="" srcset="">
+              </div>
+              <div class="view__info">
+                <h3 class="view__info-title">Имя книги</h3>
+                <p class="view__info-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis inventore vitae voluptatibus, quos, quae, exercitationem voluptate natus repellat labore omnis ducimus quasi et dicta soluta quis quia totam aliquid nobis?
+                In quod animi sint inventore distinctio nam quos illum magni molestiae quae similique mollitia nesciunt tempora ipsum unde libero voluptas sit, et maxime magnam dolore incidunt labore ducimus! Tempora, debitis.
+                Voluptatum doloremque laboriosam corporis voluptatibus blanditiis ab nostrum, velit beatae atque, ex debitis molestias cum quod libero id neque totam magnam iste itaque sequi. Quo exercitationem porro pariatur quia corporis.
+                Voluptatum doloremque laboriosam corporis voluptatibus blanditiis ab nostrum, velit beatae atque, ex debitis molestias cum quod libero id neque totam magnam iste itaque sequi. Quo exercitationem porro pariatur quia corporis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
