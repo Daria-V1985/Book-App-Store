@@ -63,7 +63,6 @@ function addCard(e) {
   }
 
   dataBook.push(newBookData);
-  console.log(dataBook);
 
   const formCard = `
         <div id="${newBookData.id}" class="card__inner">
@@ -83,9 +82,12 @@ function addCard(e) {
 
       pageAppCard.insertAdjacentHTML('beforeend', formCard);
 
+      saveToLS();
+
 }
 
-pageAppFormBtn.addEventListener('click', () => {
+pageAppFormBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   form.classList.remove('hidden');
   pageAppCard.classList.remove('visible');
   pageAppFormBtn.classList.remove('visible');
@@ -97,4 +99,6 @@ pageAppFormBtn.addEventListener('click', () => {
   formImage.value = '';
 });
 
-
+function saveToLS() {
+  localStorage.setItem('dataBook', JSON.stringify(dataBook));
+}
