@@ -34,9 +34,10 @@ const form = document.querySelector('.form');
 const formName = document.getElementById('formName');
 const formSelect = document.querySelector('.form__select');
 const formMessage = document.getElementById('formMessage');
-const pageAppCard = document.querySelector('.page-app__card');
 const formBtn = document.querySelector('.form__btn');
+const pageAppCard = document.querySelector('.page-app__card');
 const pageAppFormBtn = document.querySelector('.page-app__form-btn');
+const pageAppView = document.querySelector('.page-app__view');
 
 let dataBook = [];
 if (localStorage.getItem('dataBook')) {
@@ -45,25 +46,13 @@ if (localStorage.getItem('dataBook')) {
 }
 
 form.addEventListener('submit', addCard);
-pageAppFormBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  form.classList.remove('hidden');
-  pageAppCard.classList.remove('visible');
-  pageAppFormBtn.classList.remove('visible');
-
-  formName.value = '';
-  formName.focus();
-  formSelect.value = '1';
-  formMessage.value = '';
-  formImage.value = '';
-});
+pageAppFormBtn.addEventListener('click', backToForm);
 
 function addCard(e) {
+  e.preventDefault();
   form.classList.add('hidden');
   pageAppCard.classList.add('visible');
   pageAppFormBtn.classList.add('visible');
-
-  e.preventDefault();
 
   const formNameText = formName.value;
   const formSelectData = formSelect.value;
@@ -80,8 +69,21 @@ function addCard(e) {
 
   dataBook.push(newBookData);
   saveToLS();
-
   renderTask(newBookData);
+}
+
+function backToForm(e) {
+  e.preventDefault();
+  form.classList.remove('hidden');
+  pageAppCard.classList.remove('visible');
+  pageAppFormBtn.classList.remove('visible');
+  pageAppView.classList.remove('visible');
+
+  formName.value = '';
+  formName.focus();
+  formSelect.value = '1';
+  formMessage.value = '';
+  formImage.value = '';
 }
 
 function saveToLS() {
@@ -106,4 +108,14 @@ function renderTask(book) {
             </div>`;
 
           pageAppCard.insertAdjacentHTML('beforeend', formCard);
+}
+
+const cardBtn = document.querySelectorAll('.card-body__btn');
+
+cardBtn.forEach(button => {
+  button.addEventListener('click', openPageAppView);
+});
+
+function openPageAppView() {
+  pageAppView.classList.toggle('visible');
 }
