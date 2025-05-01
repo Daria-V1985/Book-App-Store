@@ -110,15 +110,14 @@ function renderTask(book) {
             </div>`;
 
           pageAppCard.insertAdjacentHTML('beforeend', formCard);
+
+          const cardBtn = document.querySelectorAll('.card-body__btn');
+
+          cardBtn.forEach(button => {
+            button.addEventListener('click', openPageAppView);
+          });
+
 }
-
-
-
-const cardBtn = document.querySelectorAll('.card-body__btn');
-
-cardBtn.forEach(button => {
-  button.addEventListener('click', openPageAppView);
-});
 
 function openPageAppView() {
   pageAppView.classList.toggle('visible');
