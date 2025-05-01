@@ -2,8 +2,7 @@ const formImage = document.querySelector('.file__input');
 const formPreview = document.querySelector('.file__preview');
 
 formImage.addEventListener('change', () => {
-  const file = formImage.files[0];
-  uploadFile(file);
+  uploadFile(formImage.files[0]);
 });
 
 // Добавление превью изображения
@@ -84,7 +83,7 @@ function backToForm(e) {
   formName.focus();
   formSelect.value = '5';
   formMessage.value = '';
-  formImage.value = '';
+  formPreview.innerHTML = '';
 }
 
 function saveToLS() {
@@ -110,15 +109,14 @@ function renderTask(book) {
             </div>`;
 
           pageAppCard.insertAdjacentHTML('beforeend', formCard);
+
+          const cardBtn = document.querySelectorAll('.card-body__btn');
+
+          cardBtn.forEach(button => {
+            button.addEventListener('click', openPageAppView);
+          });
+
 }
-
-
-
-const cardBtn = document.querySelectorAll('.card-body__btn');
-
-cardBtn.forEach(button => {
-  button.addEventListener('click', openPageAppView);
-});
 
 function openPageAppView() {
   pageAppView.classList.toggle('visible');

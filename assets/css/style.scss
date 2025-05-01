@@ -193,6 +193,7 @@ body {
     gap: 15px;
   }
   &__img {
+    width: 110px;
     img {
       width: 110px;
       border-radius: 5px;
@@ -208,6 +209,10 @@ body {
   flex-direction: column;
   justify-content: start;
   gap: 10px;
+  padding-right: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   &__title {
     font-size: 18px;
   }
