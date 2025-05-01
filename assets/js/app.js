@@ -1,11 +1,12 @@
-// Добавление превью изображения
-
 const formImage = document.querySelector('.file__input');
 const formPreview = document.querySelector('.file__preview');
 
 formImage.addEventListener('change', () => {
-  uploadFile(formImage.files[0]);
+  const file = formImage.files[0];
+  uploadFile(file);
 });
+
+// Добавление превью изображения
 
 function uploadFile(file) {
   if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
@@ -19,10 +20,10 @@ function uploadFile(file) {
     return;
   }
 
-  var reader = new FileReader();
+  const reader = new FileReader();
 
   reader.onload = (e) => {
-    formPreview.innerHTML = `<img src="${e.target.result}" alt="Обложка книги">`
+    formPreview.innerHTML = `<img src="${e.target.result}" alt="Обложка книги">`;
   };
   reader.onerror = (e) => alert('Ошибка!');
   reader.readAsDataURL(file);
@@ -57,14 +58,14 @@ function addCard(e) {
   const formNameText = formName.value;
   const formSelectData = formSelect.value;
   const formMessageText = formMessage.value;
-  const formImageData = formImage.value;
+  const formImageData = window.btoa(URL.createObjectURL(new Blob([formImage.files[0]])));
 
   const newBookData = {
     id: Date.now(),
     text: formNameText,
     message: formMessageText,
     select: formSelectData,
-    image: formImageData,
+    image: window.atob(formImageData),
   }
 
   dataBook.push(newBookData);
@@ -81,7 +82,7 @@ function backToForm(e) {
 
   formName.value = '';
   formName.focus();
-  formSelect.value = '1';
+  formSelect.value = '5';
   formMessage.value = '';
   formImage.value = '';
 }
@@ -91,10 +92,11 @@ function saveToLS() {
 }
 
 function renderTask(book) {
+
     const formCard = `
             <div id="${book.id}" class="card__inner">
               <div class="card__img">
-                <img src="${book.image}" alt="" srcset="">
+                <img src="${book.image}" alt="">
               </div>
               <div class="card__body card-body">
                 <h4 class="card-body__title">${book.text}</h4>
@@ -109,6 +111,8 @@ function renderTask(book) {
 
           pageAppCard.insertAdjacentHTML('beforeend', formCard);
 }
+
+
 
 const cardBtn = document.querySelectorAll('.card-body__btn');
 
