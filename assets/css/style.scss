@@ -211,8 +211,8 @@ body {
   gap: 10px;
   padding-right: 5px;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  white-space: wrap;
+  //text-overflow: ellipsis;
   &__title {
     font-size: 18px;
   }
